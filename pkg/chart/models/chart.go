@@ -46,7 +46,6 @@ type Chart struct {
 	ID              string             `json:"ID" bson:"chart_id"`
 	Name            string             `json:"name"`
 	Repo            *Repo              `json:"repo"`
-	Description     string             `json:"description"`
 	Home            string             `json:"home"`
 	Keywords        []string           `json:"keywords"`
 	Maintainers     []chart.Maintainer `json:"maintainers"`
@@ -71,6 +70,7 @@ type ChartVersion struct {
 	Created    time.Time `json:"created"`
 	Digest     string    `json:"digest"`
 	URLs       []string  `json:"urls"`
+	Description string   `json:"description"`
 	// The following three fields get set with the URL paths to the respective
 	// chart files (as opposed to the similar fields on ChartFiles which
 	// contain the actual content).

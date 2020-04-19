@@ -153,7 +153,7 @@ func listChartVersions(w http.ResponseWriter, req *http.Request, params Params) 
 		response.NewErrorResponse(http.StatusNotFound, "could not find chart").Write(w)
 		return
 	}
-
+	fmt.Print("Description:   ", chart.Description)
 	cvl := newChartVersionListResponse(&chart)
 	response.NewDataResponse(cvl).Write(w)
 }

@@ -108,7 +108,6 @@ func (m *postgresAssetManager) getChart(namespace, chartID string) (models.Chart
 		ID:              chart.ID,
 		Name:            chart.Name,
 		Repo:            chart.Repo,
-		Description:     chart.Description,
 		Home:            chart.Home,
 		Keywords:        chart.Keywords,
 		Maintainers:     chart.Maintainers,
