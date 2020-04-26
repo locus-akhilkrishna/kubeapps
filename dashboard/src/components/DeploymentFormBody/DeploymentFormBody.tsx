@@ -14,6 +14,7 @@ import AdvancedDeploymentForm from "./AdvancedDeploymentForm";
 import BasicDeploymentForm from "./BasicDeploymentForm";
 
 import "react-tabs/style/react-tabs.css";
+import DeploymentTableList from "./DeploymentTableList";
 import Differential from "./Differential";
 import "./Tabs.css";
 
@@ -106,22 +107,12 @@ class DeploymentFormBody extends React.Component<
           closeModal={this.closeRestoreDefaultValuesModal}
         />
         <div>
-          <label htmlFor="chartVersion">Version</label>
-          <select
-            id="chartVersion"
-            onChange={this.handleChartVersionChange}
-            value={version.attributes.version}
-            required={true}
-          >
-            {versions.map(v => (
-              <option key={v.id} value={v.attributes.version}>
-                {v.attributes.version}{" "}
-                {this.props.releaseVersion && v.attributes.version === this.props.releaseVersion
-                  ? "(current)"
-                  : ""}
-              </option>
-            ))}
-          </select>
+          <DeploymentTableList
+            key={"chartVersion"}
+            versions={versions}
+            onVersionChange={this.handleChartVersionChange}
+            releaseVersion={this.props.releaseVersion}
+          />
         </div>
         {this.renderTabs()}
         <div className="margin-t-big">

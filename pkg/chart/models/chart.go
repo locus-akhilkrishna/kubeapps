@@ -71,6 +71,7 @@ type ChartVersion struct {
 	Created    time.Time `json:"created"`
 	Digest     string    `json:"digest"`
 	URLs       []string  `json:"urls"`
+	Description string   `json:"description"`
 	// The following three fields get set with the URL paths to the respective
 	// chart files (as opposed to the similar fields on ChartFiles which
 	// contain the actual content).
