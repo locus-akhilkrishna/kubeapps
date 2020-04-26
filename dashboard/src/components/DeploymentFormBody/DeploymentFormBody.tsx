@@ -132,7 +132,7 @@ class DeploymentFormBody extends React.Component<
     );
   }
 
-  private handleChartVersionChange = (e: React.FormEvent<HTMLSelectElement>) => {
+  private handleChartVersionChange = (selectedVersion: string) => {
     // TODO(andres): This requires refactoring. Currently, the deploy and upgrade
     // forms behave differently. In the deployment form, a change in the version
     // changes the route but in the case of the upgrade it only changes the state
@@ -140,10 +140,10 @@ class DeploymentFormBody extends React.Component<
 
     if (isUpgradeForm) {
       const { chartID, chartNamespace, getChartVersion } = this.props;
-      getChartVersion(chartNamespace, chartID, e.currentTarget.value);
+      getChartVersion(chartNamespace, chartID, selectedVersion);
     } else {
       this.props.push(
-        `/ns/${this.props.namespace}/apps/new/${this.props.chartID}/versions/${e.currentTarget.value}`,
+        `/ns/${this.props.namespace}/apps/new/${this.props.chartID}/versions/${selectedVersion}`,
       );
     }
   };
